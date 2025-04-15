@@ -6,6 +6,7 @@
 //
 
 // this comment was written by Mia
+// this comment was written by Sami
 
 import SwiftUI
 
