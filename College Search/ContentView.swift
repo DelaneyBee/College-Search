@@ -5,6 +5,8 @@
 //  Created by Delaney Blaszinski on 4/14/25.
 //
 
+// this comment was written by Mia
+
 import SwiftUI
 
 struct ContentView: View {
