@@ -9,8 +9,9 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var colleges: [College] = [] // Array of colleges
+    @State private var colleges: [College] = []
     @State private var isLoading = false
+    @State private var totalPages = 17 // Estimated max pages; can be made dynamic later
 
     var body: some View {
         NavigationView {
@@ -32,7 +33,7 @@ struct HomeView: View {
                     NavigationLink(
                         destination: CollegeDetailView(college: college),
                         label: {
-                            Text(college.school.name) // Display college name
+                            Text(college.school.name)
                         }
                     )
                 }
@@ -46,34 +47,26 @@ struct HomeView: View {
             isLoading = true
             defer { isLoading = false }
 
-            // Updated API URL for colleges in Illinois (10 per page)
-            let urlString = "https://api.data.gov/ed/collegescorecard/v1/schools?api_key=71h9fmGKhADcqWMzi49TwU3J9knDNWeL3itgHDAn&school.state=IL&page=1&per_page=10"
-            
+            let randomPage = Int.random(in: 1...totalPages)
+            let urlString = "https://api.data.gov/ed/collegescorecard/v1/schools?api_key=71h9fmGKhADcqWMzi49TwU3J9knDNWeL3itgHDAn&school.state=IL&page=\(randomPage)&per_page=10"
+
             guard let url = URL(string: urlString) else {
                 print("Invalid URL")
                 return
             }
 
             do {
-                // Perform the API request
                 let (data, response) = try await URLSession.shared.data(from: url)
-                
-                if let httpResponse = response as? HTTPURLResponse {
-                    print("HTTP status: \(httpResponse.statusCode)")
-                    
-                    // Handle non-200 HTTP responses
-                    if httpResponse.statusCode != 200 {
-                        print("Error: Received non-200 HTTP response.")
-                        return
-                    }
+
+                if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
+                    print("Error: Received non-200 HTTP response.")
+                    return
                 }
 
-                // Decode the response into APIResponse model
                 let decoded = try JSONDecoder().decode(APIResponse.self, from: data)
-                colleges = Array(decoded.results.shuffled().prefix(10)) // Get 10 random colleges
+                colleges = decoded.results // Display fresh 10 from random page
 
             } catch {
-                // Log any decoding or networking errors
                 print("Error: \(error)")
             }
         }
@@ -85,3 +78,4 @@ struct HomeView_Previews: PreviewProvider {
         HomeView()
     }
 }
+
