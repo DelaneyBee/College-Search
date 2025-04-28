@@ -12,13 +12,13 @@ struct ButtonDropdownView: View {
     @State private var showColorOptions = false
     @State private var showAnimalOptions = false
 
-    @State private var selectedFruit = "Apple"
-    @State private var selectedColor = "Red"
-    @State private var selectedAnimal = "Dog"
+    @State private var selectedFruit = "Size"
+    @State private var selectedColor = "Distance"
+   
 
-    let fruits = ["Apple", "Banana", "Orange", "Grapes"]
+    let fruits = ["0-1000", "1001-5000", "5001-10000", "10001-25000", "25001-50000", "50001+"]
     let colors = ["Red", "Blue", "Green", "Yellow"]
-    let animals = ["Dog", "Cat", "Rabbit", "Bird"]
+   
 
     var body: some View {
         NavigationView {
@@ -84,34 +84,7 @@ struct ButtonDropdownView: View {
                 }
 
                 // Animal Dropdown
-                VStack(alignment: .leading) {
-                    Button(action: {
-                        showAnimalOptions.toggle()
-                    }) {
-                        HStack {
-                            Text(selectedAnimal)
-                            Spacer()
-                            Image(systemName: showAnimalOptions ? "chevron.up" : "chevron.down")
-                        }
-                        .padding()
-                        .background(Color(.secondarySystemBackground))
-                        .cornerRadius(8)
-                    }
-
-                    if showAnimalOptions {
-                        ForEach(animals, id: \.self) { animal in
-                            Button(action: {
-                                selectedAnimal = animal
-                                showAnimalOptions = false
-                            }) {
-                                Text(animal)
-                                    .padding(.vertical, 5)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                            }
-                            .foregroundColor(.blue)
-                        }
-                    }
-                }
+               
 
                 Spacer()
             }
