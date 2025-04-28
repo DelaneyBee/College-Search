@@ -10,12 +10,12 @@ import SwiftUI
 struct InitialView: View {
     // State variables for each dropdown
     @State private var selectedSize = "0-1000"
-    @State private var selectedColor = "Red"
+    @State private var selectedDistance = "Red"
     @State private var selectedAnimal = "Dog"
 
     // Options for each dropdown
     let size = ["0-1000", "1001-5000", "5001-10000", "10001-25000", "250001-50000", "50000+"]
-    let colors = ["Red", "Blue", "Green", "Yellow"]
+    let distance = ["0-50", "51-100", "101-200", "201-300","301-400"]
     let animals = ["Dog", "Cat", "Rabbit", "Bird"]
 
     var body: some View {
@@ -30,25 +30,16 @@ struct InitialView: View {
                     .pickerStyle(MenuPickerStyle())
                 }
 
-                Section(header: Text("Select a Color")) {
-                    Picker("State", selection: $selectedColor) {
-                        ForEach(colors, id: \.self) { color in
-                            Text(color)
-                        }
-                    }
-                    .pickerStyle(MenuPickerStyle())
-                }
-
-                Section(header: Text("Select an Animal")) {
-                    Picker("Animal", selection: $selectedAnimal) {
-                        ForEach(animals, id: \.self) { animal in
-                            Text(animal)
+                Section(header: Text("Select a Distance")) {
+                    Picker("Distance", selection: $selectedDistance) {
+                        ForEach(distance, id: \.self) { distance in
+                            Text(distance)
                         }
                     }
                     .pickerStyle(MenuPickerStyle())
                 }
             }
-            .navigationTitle("Multi Dropdowns")
+            .navigationTitle("Filter Options")
         }
     }
 }
