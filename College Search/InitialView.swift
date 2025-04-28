@@ -10,13 +10,13 @@ import SwiftUI
 struct InitialView: View {
     // State variables for each dropdown
     @State private var selectedSize = "0-1000"
-    @State private var selectedDistance = "Red"
-    @State private var selectedAnimal = "Dog"
+    @State private var selectedDistance = "0-50"
+    
 
     // Options for each dropdown
     let size = ["0-1000", "1001-5000", "5001-10000", "10001-25000", "250001-50000", "50000+"]
     let distance = ["0-50", "51-100", "101-200", "201-300","301-400"]
-    let animals = ["Dog", "Cat", "Rabbit", "Bird"]
+
 
     var body: some View {
         NavigationView {
