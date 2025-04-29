@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct ButtonDropdownView: View {
-    @State private var showFruitOptions = false
-    @State private var showColorOptions = false
+    @State private var showSizeOptions = false
+    @State private var showDistanceOptions = false
     @State private var showAnimalOptions = false
 
-    @State private var selectedFruit = "Size"
-    @State private var selectedColor = "Distance"
+    @State private var selectedSize = "Size"
+    @State private var selectedDistance = "Distance"
    
 
-    let fruits = ["0-1000", "1001-5000", "5001-10000", "10001-25000", "25001-50000", "50001+"]
-    let colors = ["Red", "Blue", "Green", "Yellow"]
+    let size = ["0-1000", "1001-5000", "5001-10000", "10001-25000", "25001-50000", "50001+"]
+    let distance = ["0-25 miles", "26-50 miles", "51-100 miles", "101-200 miles", "201-500 miles"]
    
 
     var body: some View {
@@ -26,25 +26,25 @@ struct ButtonDropdownView: View {
                 // Fruit Dropdown
                 VStack(alignment: .leading) {
                     Button(action: {
-                        showFruitOptions.toggle()
+                        showSizeOptions.toggle()
                     }) {
                         HStack {
-                            Text(selectedFruit)
+                            Text(selectedSize)
                             Spacer()
-                            Image(systemName: showFruitOptions ? "chevron.up" : "chevron.down")
+                            Image(systemName: showSizeOptions ? "chevron.up" : "chevron.down")
                         }
                         .padding()
                         .background(Color(.secondarySystemBackground))
                         .cornerRadius(8)
                     }
 
-                    if showFruitOptions {
-                        ForEach(fruits, id: \.self) { fruit in
+                    if showSizeOptions {
+                        ForEach(size, id: \.self) { size in
                             Button(action: {
-                                selectedFruit = fruit
-                                showFruitOptions = false
+                                selectedSize = size
+                                showSizeOptions = false
                             }) {
-                                Text(fruit)
+                                Text(size)
                                     .padding(.vertical, 5)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
@@ -56,25 +56,25 @@ struct ButtonDropdownView: View {
                 // Color Dropdown
                 VStack(alignment: .leading) {
                     Button(action: {
-                        showColorOptions.toggle()
+                        showDistanceOptions.toggle()
                     }) {
                         HStack {
-                            Text(selectedColor)
+                            Text(selectedDistance)
                             Spacer()
-                            Image(systemName: showColorOptions ? "chevron.up" : "chevron.down")
+                            Image(systemName: showDistanceOptions ? "chevron.up" : "chevron.down")
                         }
                         .padding()
                         .background(Color(.secondarySystemBackground))
                         .cornerRadius(8)
                     }
 
-                    if showColorOptions {
-                        ForEach(colors, id: \.self) { color in
+                    if showDistanceOptions {
+                        ForEach(distance, id: \.self) { distance in
                             Button(action: {
-                                selectedColor = color
-                                showColorOptions = false
+                                selectedDistance = distance
+                                showDistanceOptions = false
                             }) {
-                                Text(color)
+                                Text(distance)
                                     .padding(.vertical, 5)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
