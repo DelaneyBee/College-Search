@@ -10,7 +10,7 @@ import SwiftUI
 struct ButtonDropdownView: View {
     @State private var showSizeOptions = false
     @State private var showDistanceOptions = false
-    @State private var showAnimalOptions = false
+   
 
     @State private var selectedSize = "Size"
     @State private var selectedDistance = "Distance"
@@ -89,7 +89,7 @@ struct ButtonDropdownView: View {
                 Spacer()
             }
             .padding()
-            .navigationTitle("Button Dropdowns")
+            .navigationTitle("College Filters")
         }
     }
 }
