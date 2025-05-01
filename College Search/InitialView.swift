@@ -91,8 +91,10 @@ struct ButtonDropdownView: View {
                     .navigationTitle("College Search")
                   
             }
+
             .font(Font.custom("Times New Roman", size: 18))
             .background(Color.pink).opacity((0.6))
+
         }
         
         
