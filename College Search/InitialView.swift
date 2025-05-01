@@ -84,8 +84,14 @@ struct ButtonDropdownView: View {
                         }
                     }
                 }
-                // Animal Dropdown
+              
                 
+                NavigationLink {
+                    //View where API would be
+                      //
+                } label: {
+                    CustomButton(text: "Load")
+                }
                 
                 Spacer()
                     .navigationTitle("College Search")
@@ -94,7 +100,7 @@ struct ButtonDropdownView: View {
             .font(Font.custom("Times New Roman", size: 18))
             .background(Color.pink).opacity((0.6))
         }
-        
+       
         
     }
    
