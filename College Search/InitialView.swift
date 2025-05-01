@@ -22,7 +22,7 @@ struct ButtonDropdownView: View {
 
     var body: some View {
         NavigationView {
-            VStack(spacing: 20) {
+            VStack(spacing: 30) {
                 // Fruit Dropdown
                 VStack(alignment: .leading) {
                     Button(action: {
@@ -34,10 +34,10 @@ struct ButtonDropdownView: View {
                             Image(systemName: showSizeOptions ? "chevron.up" : "chevron.down")
                         }
                         .padding()
-                        .background(Color(.secondarySystemBackground))
-                        .cornerRadius(8)
+                        .background(Color(.pink))
+                        .cornerRadius(20).shadow(radius: 10)
+                        .foregroundColor(.white)
                     }
-
                     if showSizeOptions {
                         ForEach(size, id: \.self) { size in
                             Button(action: {
@@ -46,13 +46,13 @@ struct ButtonDropdownView: View {
                             }) {
                                 Text(size)
                                     .padding(.vertical, 5)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .frame(maxWidth: .infinity, alignment: .leading).bold()
                             }
-                            .foregroundColor(.blue)
+                            .foregroundColor(.white)
                         }
                     }
                 }
-
+                
                 // Color Dropdown
                 VStack(alignment: .leading) {
                     Button(action: {
@@ -63,11 +63,13 @@ struct ButtonDropdownView: View {
                             Spacer()
                             Image(systemName: showDistanceOptions ? "chevron.up" : "chevron.down")
                         }
+                        
                         .padding()
-                        .background(Color(.secondarySystemBackground))
-                        .cornerRadius(8)
+                        .background(Color(.pink))
+                        .cornerRadius(20).shadow(radius: 10)
+                        .foregroundColor(.white)
                     }
-
+                    
                     if showDistanceOptions {
                         ForEach(distance, id: \.self) { distance in
                             Button(action: {
@@ -76,23 +78,28 @@ struct ButtonDropdownView: View {
                             }) {
                                 Text(distance)
                                     .padding(.vertical, 5)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .frame(maxWidth: .infinity, alignment: .leading).bold()
                             }
-                            .foregroundColor(.blue)
+                            .foregroundColor(.white)
                         }
                     }
                 }
-
                 // Animal Dropdown
-               
-
+                
+                
                 Spacer()
+                    .navigationTitle("College Search")
+                  
             }
-            .padding()
-            .navigationTitle("College Filters")
+            .font(Font.custom("Times New Roman", size: 18))
+            .background(Color.pink).opacity((0.6))
         }
+        
+        
     }
+   
 }
+
 
 struct ButtonDropdownView_Previews: PreviewProvider {
     static var previews: some View {
