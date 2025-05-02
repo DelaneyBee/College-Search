@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CollegeDetailView: View {
-    var college: College // Passed from HomeView
+    var college: College // Passed from InitialView
 
     var body: some View {
         VStack {
