@@ -17,7 +17,7 @@ struct DataView: View {
         NavigationView {
             VStack {
                 Button(action: fetchColleges) {
-                    Text("Load 10 Colleges in IL")
+                    Text("Load")
                         .padding()
                         .background(Color.blue)
                         .foregroundColor(.white)

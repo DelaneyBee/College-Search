@@ -84,7 +84,7 @@ struct ButtonDropdownView: View {
                 }
               
                 
-                NavigationLink {
+                NavigationLink { //got the button to work with the dataView struct
                     DataView()
                         .environmentObject(gameManger)
                 } label: {
