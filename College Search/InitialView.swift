@@ -10,11 +10,9 @@ import SwiftUI
 struct ButtonDropdownView: View {
     @State private var showSizeOptions = false
     @State private var showDistanceOptions = false
-   
-
     @State private var selectedSize = "Size"
     @State private var selectedDistance = "Distance"
-   
+   @StateObject var gameManger = GameManger()
 
     let size = ["0-1000 students", "1001-5000 students", "5001-10000 students", "10001-25000 students", "25001-50000 students", "50001+ students"]
     let distance = ["0-25 miles", "26-50 miles", "51-100 miles", "101-200 miles", "201-500 miles", "501+ miles"]
@@ -87,8 +85,8 @@ struct ButtonDropdownView: View {
               
                 
                 NavigationLink {
-                    //View where API would be
-                      //
+                    DataView()
+                        .environmentObject(gameManger)
                 } label: {
                     CustomButton(text: "Load")
                 }

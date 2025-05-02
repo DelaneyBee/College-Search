@@ -20,8 +20,12 @@ struct CustomButton: View {
             .cornerRadius(20)
             .shadow(radius: 10)
             .font(Font.custom("Times New Roman", size: 18))
+            
         
     }
+}
+func Buttonpress() {
+    
 }
 #Preview {
     CustomButton(text: "Load ")
