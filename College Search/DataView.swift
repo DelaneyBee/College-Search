@@ -12,7 +12,7 @@ struct DataView: View {
     @State private var isLoading = false
     @State private var totalPages = 17 // Estimated max pages; can be made dynamic later
     @EnvironmentObject var gameManger: GameManger
-
+   
     var body: some View {
         NavigationView {
             VStack {

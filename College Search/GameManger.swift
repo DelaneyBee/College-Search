@@ -8,4 +8,5 @@ import Foundation
 import SwiftUI
 
 class GameManger: ObservableObject {
+    
 }
