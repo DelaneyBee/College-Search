@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 
 @main
-struct CollegeApp: App {
+struct CollegeSearch: App {
     var body: some Scene {
         WindowGroup {
-            DataView()
+        ButtonDropdownView()
         }
     }
 }
