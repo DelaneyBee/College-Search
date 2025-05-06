@@ -44,6 +44,7 @@ struct ButtonDropdownView: View {
                             }) {
                                 Text(size)
                                     .padding(.vertical, 5)
+                                    .padding(.horizontal)
                                     .frame(maxWidth: .infinity, alignment: .leading).bold()
                             }
                             .foregroundColor(.white)
@@ -76,6 +77,7 @@ struct ButtonDropdownView: View {
                             }) {
                                 Text(distance)
                                     .padding(.vertical, 5)
+                                    .padding(.horizontal)
                                     .frame(maxWidth: .infinity, alignment: .leading).bold()
                             }
                             .foregroundColor(.white)
