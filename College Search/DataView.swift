@@ -11,7 +11,7 @@ struct DataView: View {
     @State private var colleges: [College] = []
     @State private var collegeSize = "1000-5000, 5001-10000, 10001-15000, 15001-20000"
     @State private var collegeDistance = "50, 100, 150, 200"
-  @State private var isLoading = false 
+  @State private var isLoading = false
     @EnvironmentObject var gameManger: GameManger
    
     var body: some View {
