@@ -9,8 +9,9 @@ import SwiftUI
 
 struct DataView: View {
     @State private var colleges: [College] = []
-    @State private var isLoading = false
-    @State private var totalPages = 17 // Estimated max pages; can be made dynamic later
+    @State private var collegeSize = "1000-5000, 5001-10000, 10001-15000, 15001-20000"
+    @State private var collegeDistance = "50, 100, 150, 200"
+  @State private var isLoading = false 
     @EnvironmentObject var gameManger: GameManger
    
     var body: some View {
@@ -47,8 +48,8 @@ struct DataView: View {
             isLoading = true
             defer { isLoading = false }
 
-            let randomPage = Int.random(in: 1...totalPages)
-            let urlString = "https://api.data.gov/ed/collegescorecard/v1/schools?api_key=71h9fmGKhADcqWMzi49TwU3J9knDNWeL3itgHDAn&school.state=IL&page=\(randomPage)&per_page=10"
+           
+            let urlString = "https://api.data.gov/ed/collegescorecard/v1/schools?api_key=71h9fmGKhADcqWMzi49TwU3J9knDNWeL3itgHDAn&school.state=IL&zip=60010&distance=\(collegeDistance)&2022.student.size__\(collegeSize)"
 
             guard let url = URL(string: urlString) else {
                 print("Invalid URL")

@@ -12,11 +12,12 @@ struct ButtonDropdownView: View {
     @State private var showDistanceOptions = false
     @State private var selectedSize = "Size"
     @State private var selectedDistance = "Distance"
-   @StateObject var gameManger = GameManger()
+    @StateObject var gameManger = GameManger()
+    @State private var data: [String] = []
     let size = ["0-1000 students", "1001-5000 students", "5001-10000 students", "10001-25000 students", "25001-50000 students", "50001+ students"]
     let distance = ["0-25 miles", "26-50 miles", "51-100 miles", "101-200 miles", "201-500 miles", "501+ miles"]
-   
-
+    
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 30) {
@@ -81,7 +82,7 @@ struct ButtonDropdownView: View {
                         }
                     }
                 }
-              
+                
                 
                 NavigationLink { //got the button to work with the dataView struct
                     DataView()
@@ -92,25 +93,26 @@ struct ButtonDropdownView: View {
                 
                 Spacer()
                     .navigationTitle("College Search")
-                  
+                
             }
-
+            
             .font(Font.custom("Times New Roman", size: 18))
             .background(Color.pink).opacity((0.6))
-
+            
         }
-       
         
+     
     }
-   
+    
+    
+    
+    struct ButtonDropdownView_Previews: PreviewProvider {
+        static var previews: some View {
+            ButtonDropdownView()
+        }
+    }
 }
-
-
-struct ButtonDropdownView_Previews: PreviewProvider {
-    static var previews: some View {
+    #Preview {
         ButtonDropdownView()
     }
-}
-#Preview {
-    ButtonDropdownView()
-}
+
