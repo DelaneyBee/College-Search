@@ -17,7 +17,11 @@ struct ButtonDropdownView: View {
     let size = ["0-1000 students", "1001-5000 students", "5001-10000 students", "10001-25000 students", "25001-50000 students", "50001+ students"]
     let distance = ["0-25 miles", "26-50 miles", "51-100 miles", "101-200 miles", "201-500 miles", "501+ miles"]
     
+<<<<<<< Updated upstream
     
+=======
+
+>>>>>>> Stashed changes
     var body: some View {
         NavigationView {
             VStack(spacing: 30) {
@@ -101,6 +105,10 @@ struct ButtonDropdownView: View {
             .font(Font.custom("Times New Roman", size: 18))
             .background(Color.pink).opacity((0.6))
             
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         }
         
      
