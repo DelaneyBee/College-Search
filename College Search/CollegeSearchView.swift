@@ -23,8 +23,11 @@ struct CollegeSearchView: View {
     private let distanceOptions = ["50", "100", "150", "200"]
     
     var body: some View {
+       
         NavigationView {
-            VStack(spacing: 16) {
+           
+            VStack(spacing: 40) {
+                
                 TextField("Enter ZIP Code", text: $zipCode)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal)
@@ -33,7 +36,9 @@ struct CollegeSearchView: View {
                 Picker("Student Size Range", selection: $selectedSizeRange) {
                     ForEach(sizeOptions.keys.sorted(), id: \.self) { key in
                         Text(key)
+                            
                     }
+                    
                 }
                 .pickerStyle(MenuPickerStyle())
                 .padding(.horizontal)
@@ -41,11 +46,15 @@ struct CollegeSearchView: View {
                 Picker("Distance (mi)", selection: $selectedDistance) {
                     ForEach(distanceOptions, id: \.self) { dist in
                         Text("\(dist) miles")
+                            
                     }
+                   
                 }
                 .pickerStyle(MenuPickerStyle())
                 .padding(.horizontal)
-                                
+                
+               
+                
                 NavigationLink(destination: CollegeResultsView(
                     zip: zipCode,
                     distance: selectedDistance,
@@ -67,8 +76,11 @@ struct CollegeSearchView: View {
             }
             .navigationTitle("College Search")
             .background(Color.pink.opacity(0.2))
+            
         }
+       
     }
+     
 }
 #Preview  {
     CollegeSearchView()
