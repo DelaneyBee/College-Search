@@ -42,7 +42,7 @@ struct CollegeSearchView: View {
                         Text("\(dist) miles")
                     }
                 }
-                .pickerStyle(SegmentedPickerStyle())
+                .pickerStyle(MenuPickerStyle())
                 .padding(.horizontal)
 
                 NavigationLink(destination: CollegeResultsView(
@@ -54,7 +54,7 @@ struct CollegeSearchView: View {
                     Text("Load Colleges")
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(Color.blue)
+                        .background(Color.pink)
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }
