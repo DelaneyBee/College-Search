@@ -68,4 +68,7 @@ struct CollegeSearchView: View {
         }
     }
 }
+#Preview  {
+    CollegeSearchView()
+}
 
