@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CollegeSearchView: View {
-    @State private var zipCode = "60010"
+    @State private var zipCode = "Enter zip code"
     @State private var selectedSizeRange = "1000-5000"
     @State private var selectedDistance = "50"
     
@@ -28,7 +28,8 @@ struct CollegeSearchView: View {
                 TextField("Enter ZIP Code", text: $zipCode)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal)
-
+                    .opacity(0.7)
+                Text("Select number of students:")
                 Picker("Student Size Range", selection: $selectedSizeRange) {
                     ForEach(sizeOptions.keys.sorted(), id: \.self) { key in
                         Text(key)
@@ -36,7 +37,7 @@ struct CollegeSearchView: View {
                 }
                 .pickerStyle(MenuPickerStyle())
                 .padding(.horizontal)
-
+                Text("Select mile range:")
                 Picker("Distance (mi)", selection: $selectedDistance) {
                     ForEach(distanceOptions, id: \.self) { dist in
                         Text("\(dist) miles")
@@ -44,7 +45,7 @@ struct CollegeSearchView: View {
                 }
                 .pickerStyle(MenuPickerStyle())
                 .padding(.horizontal)
-
+                                
                 NavigationLink(destination: CollegeResultsView(
                     zip: zipCode,
                     distance: selectedDistance,
@@ -65,6 +66,7 @@ struct CollegeSearchView: View {
                 Spacer()
             }
             .navigationTitle("College Search")
+            .background(Color.pink.opacity(0.2))
         }
     }
 }
