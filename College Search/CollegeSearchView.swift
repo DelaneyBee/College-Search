@@ -57,6 +57,8 @@ struct CollegeSearchView: View {
                         .background(Color.pink)
                         .foregroundColor(.white)
                         .cornerRadius(10)
+                      
+                    
                 }
                 .padding(.horizontal)
                 
