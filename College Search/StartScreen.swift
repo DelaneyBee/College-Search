@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StartScreen: View {
     var body: some View {
-        NavigationView {
+        
             VStack {
                 Text("    Welcome to College Search!")
                     .font(.largeTitle)
@@ -23,7 +23,7 @@ struct StartScreen: View {
                 CustomButton(text: "Find colleges")
                 }
             Spacer()
-            }
+            
         }
     }
 
