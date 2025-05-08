@@ -17,10 +17,16 @@ struct StartScreen: View {
                     .imageScale(.large)
                     .foregroundStyle(.tint)
             }
+            NavigationLink {
+                CollegeSearchView()
+            } label: {
+                CustomButton(text: "Find colleges")
+                }
             Spacer()
+            }
         }
     }
-}
+
 
 #Preview {
     StartScreen()
