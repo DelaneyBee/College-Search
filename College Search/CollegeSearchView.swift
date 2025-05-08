@@ -28,11 +28,10 @@ struct CollegeSearchView: View {
            
             VStack(spacing: 40) {
                 
-                TextField("Enter ZIP Code", text: $zipCode)
+                TextField("Enter ZIP Code", text: $zipCode).font(Font.custom("Times New Roman", size: 30))
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal)
-                    .opacity(0.7)
-                Text("Select number of students:")
+                Text("Select Number of Students:").font(Font.custom("Times New Roman", size: 30)).underline()
                 Picker("Student Size Range", selection: $selectedSizeRange) {
                     ForEach(sizeOptions.keys.sorted(), id: \.self) { key in
                         Text(key)
@@ -42,13 +41,13 @@ struct CollegeSearchView: View {
                 }
                 .pickerStyle(MenuPickerStyle())
                 .padding(.horizontal)
-                Text("Select mile range:")
+                Text("Select Distance:").font(Font.custom("Times New Roman", size: 30)).underline()
                 Picker("Distance (mi)", selection: $selectedDistance) {
                     ForEach(distanceOptions, id: \.self) { dist in
                         Text("\(dist) miles")
-                            
+                          
                     }
-                   
+                    
                 }
                 .pickerStyle(MenuPickerStyle())
                 .padding(.horizontal)
@@ -67,14 +66,14 @@ struct CollegeSearchView: View {
                         .background(Color.pink)
                         .foregroundColor(.white)
                         .cornerRadius(10)
-                      
+                        .font(Font.custom("Times New Roman", size: 30))
                     
                 }
                 .padding(.horizontal)
                 
                 Spacer()
             }
-            .navigationTitle("College Search")
+            .navigationTitle("College Search").font(Font.custom("Times New Roman", size: 30))
             .background(Color.pink.opacity(0.2))
             
         }

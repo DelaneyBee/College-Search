@@ -20,16 +20,16 @@ struct CollegeResultsView: View {
         List(schools, id: \.id) { school in
             VStack(alignment: .leading) {
                 Text(school.name).font(.headline)
-                Text("\(school.city), \(school.state) \(school.zip)")
+                Text("\(school.city), \(school.state) \(school.zip)").font(Font.custom("Times New Roman", size: 20))
                 if let size = school.size {
-                    Text("Size: \(size)")
+                    Text("Size: \(size)").font(Font.custom("Times New Roman", size: 20))
                 }
                 if let url = school.url {
-                    Text(url).foregroundColor(.blue)
+                    Text(url).foregroundColor(.pink)
                 }
             }
         }
-        .navigationTitle("Colleges")
+        .navigationTitle("Colleges").font(Font.custom("Times New Roman", size: 20))
         .onAppear {
             fetchColleges()
         }
@@ -48,18 +48,18 @@ struct CollegeResultsView: View {
         ]
 
         guard let url = components.url else {
-            print("❌ Invalid URL")
+            print("Invalid URL")
             return
         }
 
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
-                print("❌ Network error: \(error.localizedDescription)")
+                print(" Network error: \(error.localizedDescription)")
                 return
             }
 
             guard let data = data else {
-                print("❌ No data")
+                print("No data")
                 return
             }
 
@@ -69,7 +69,7 @@ struct CollegeResultsView: View {
                     self.schools = decoded.results
                 }
             } catch {
-                print("❌ Decoding error: \(error)")
+                print("Decoding error: \(error)")
             }
         }.resume()
     }
