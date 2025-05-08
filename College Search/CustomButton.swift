@@ -9,15 +9,16 @@ import SwiftUI
 
 struct CustomButton: View {
     var text: String
-    var background: Color = .black
+    var background: Color = .pink
     var body: some View {
         NavigationView {
             Text(text)
-                .foregroundColor(.pink)
+                .foregroundColor(.white)
                 .padding()
                 .padding(.horizontal)
                 .background(background)
                 .cornerRadius(25)
+                .font(Font.custom("Times New Roman", size: 30))
         }
     }
 }
