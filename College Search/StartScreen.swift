@@ -9,14 +9,16 @@ import SwiftUI
 
 struct StartScreen: View {
     var body: some View {
-        VStack {
-            Text("Welcome to College Search!")
-                .font(.largeTitle)
-            Image("Pretty college").resizable().frame(width: 200, height: 200)
-                .imageScale(.large)
-                .foregroundStyle(.tint)
+        NavigationView {
+            VStack {
+                Text("    Welcome to College Search!")
+                    .font(.largeTitle)
+                Image("Pretty college").resizable().frame(width: 200, height: 200)
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+            }
+            Spacer()
         }
-        Spacer()
     }
 }
 
