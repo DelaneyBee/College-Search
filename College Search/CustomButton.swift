@@ -11,12 +11,14 @@ struct CustomButton: View {
     var text: String
     var background: Color = .black
     var body: some View {
-        Text(text)
-            .foregroundColor(.pink)
-            .padding()
-            .padding(.horizontal)
-            .background(background)
-            .cornerRadius(25)
+        NavigationView {
+            Text(text)
+                .foregroundColor(.pink)
+                .padding()
+                .padding(.horizontal)
+                .background(background)
+                .cornerRadius(25)
+        }
     }
 }
 
