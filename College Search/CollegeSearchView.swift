@@ -79,9 +79,14 @@ struct CollegeSearchView: View {
                 }
                 .padding(.horizontal)
                 Spacer()
+                Image("Grad Cap").resizable().frame(width: 170, height: 170)
+                   
             }
+            .padding()
             .navigationTitle("College Search").font(Font.custom("Times New Roman", size: 30))
             .background(Color.pink.opacity(0.2))
+           
+          
         }
     }
 }
