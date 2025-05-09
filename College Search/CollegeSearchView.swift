@@ -39,6 +39,7 @@ struct CollegeSearchView: View {
                         Text(key)
                     }
                 }
+                //Picker for distance takes the distance selected and 
                 .pickerStyle(MenuPickerStyle())
                 .padding(.horizontal)
                 Text("Select Distance:").font(Font.custom("Times New Roman", size: 30)).underline()

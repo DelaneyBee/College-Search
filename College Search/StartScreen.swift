@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+//this view is for the first screen
 struct WelcomeView: View {
     var body: some View {
         NavigationView {
