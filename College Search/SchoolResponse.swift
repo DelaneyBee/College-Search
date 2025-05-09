@@ -19,7 +19,8 @@ struct School: Codable, Identifiable {
     let zip: String
     let url: String?
     let size: Int?
-
+// declaring variables, so that youre able to pick different categories for the colleges
+    
     enum CodingKeys: String, CodingKey {
         case id
         case name = "school.name"
@@ -30,6 +31,7 @@ struct School: Codable, Identifiable {
         case size = "2022.student.size"
     }
 }
+// these values are used in CollegeResultsView in order to pull the correct API
 
 
 struct SchoolInfo: Codable {
@@ -38,7 +40,8 @@ struct SchoolInfo: Codable {
     let zip: String
     let url: String?
 }
-
+// this allows the responses to be in the string format, declares school info
 struct StudentInfo: Codable {
     let size: Int?
 }
+// allows the response to be in number format, declares student info
