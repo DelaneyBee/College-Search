@@ -40,9 +40,7 @@ struct WelcomeView: View {
                 }
                 Spacer()
             }
-          
         }
-      
     }
 }
 #Preview {
