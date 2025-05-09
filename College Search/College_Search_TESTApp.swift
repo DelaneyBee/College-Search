@@ -12,7 +12,7 @@ import SwiftUI
 struct CollegeApp: App {
     var body: some Scene {
         WindowGroup {
-            StartScreen()
+            WelcomeView()
         }
     }
 }

@@ -7,27 +7,36 @@
 
 import SwiftUI
 
-struct StartScreen: View {
+struct WelcomeView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("    Welcome to College Search!")
-                    .font(.largeTitle)
-                Image("Pretty college").resizable().frame(width: 200, height: 200)
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
+                VStack {
+                   
+                    Image("Pretty College")
+                        .padding()
+                }
+                Text("Welcome to College Search").font(Font.custom("Times New Roman", size: 30)).foregroundColor(.pink).underline()
+                    .padding()
+                Text("Find colleges based on size and distance!").font(Font.custom("Times New Roman", size: 25)).foregroundColor(.pink).multilineTextAlignment(.center)
+                    .padding(90)
+                NavigationLink(destination: CollegeSearchView()) {
+                   
+                    Text("Start Search").font(Font.custom("Times New Roman", size: 30))
+                        .font(.headline)
+                        .padding()
+                        .background(Color.pink)
+                        .foregroundColor(.white)
+                        .cornerRadius(20)
+                        .padding(0)
+                }
+                Spacer()
             }
-            NavigationLink {
-                CollegeSearchView()
-            } label: {
-                CustomButton(text: "Find colleges")
-            }
-            Spacer()
-            }
+          
         }
+      
     }
-
-
+}
 #Preview {
-    StartScreen()
+    WelcomeView()
 }
