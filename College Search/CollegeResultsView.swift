@@ -15,7 +15,7 @@ struct CollegeResultsView: View {
     let maxSize: Int
 
     @State private var schools: [School] = []
-
+// this view is what makes the app works it takes the inputs (Zip code, distance, and size) and puts them into the API link
     var body: some View {
         List(schools, id: \.id) { school in
             VStack(alignment: .leading) {
@@ -34,19 +34,19 @@ struct CollegeResultsView: View {
             fetchColleges()
         }
     }
-
+//this is the function that gets the colleges to load witht the correct Zip Code, Distance, and size that was selected
     func fetchColleges() {
-        let apiKey = "71h9fmGKhADcqWMzi49TwU3J9knDNWeL3itgHDAn"
-        let baseURL = "https://api.data.gov/ed/collegescorecard/v1/schools"
+        let apiKey = "71h9fmGKhADcqWMzi49TwU3J9knDNWeL3itgHDAn" // the API Key
+        let baseURL = "https://api.data.gov/ed/collegescorecard/v1/schools" // the start of the code where everything below is added to it
         var components = URLComponents(string: baseURL)!
         components.queryItems = [
             URLQueryItem(name: "api_key", value: apiKey),
             URLQueryItem(name: "zip", value: zip),
             URLQueryItem(name: "distance", value: "\(distance)mi"),
-            URLQueryItem(name: "2022.student.size__range", value: "\(minSize)..\(maxSize)"),
+            URLQueryItem(name: "2022.student.size__range", value: "\(minSize)..\(maxSize)"), //the latest year from the API ( Department of Education)
             URLQueryItem(name: "fields", value: "id,school.name,school.city,school.state,school.zip,school.url,2022.student.size")
         ]
-
+//if anything goes wrong errors --
         guard let url = components.url else {
             print("Invalid URL")
             return
