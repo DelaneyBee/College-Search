@@ -79,7 +79,7 @@ struct CollegeSearchView: View {
                 }
                 .padding(.horizontal)
                 Spacer()
-                Image("Grad Cap").resizable().frame(width: 170, height: 170)
+                Image("Grad Cap").resizable().frame(width: 150, height: 150)
                    
             }
             .padding()
