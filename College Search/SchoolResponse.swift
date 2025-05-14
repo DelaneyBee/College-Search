@@ -11,7 +11,7 @@ struct SchoolResponse: Codable {
     let results: [School]
 }
 
-struct School: Codable, Identifiable {
+struct School: Codable, Identifiable {  //works with the urlQueryItem, makes it capable of encoding and decoding itself to and from external JSON data.
     let id: Int
     let name: String
     let city: String
@@ -21,7 +21,8 @@ struct School: Codable, Identifiable {
     let size: Int?
 // declaring variables, so that youre able to pick different categories for the colleges
     
-    enum CodingKeys: String, CodingKey {
+    enum CodingKeys: String, CodingKey { //works with the urlQueryItem
+        //enum's represent different states or options the case are those options
         case id
         case name = "school.name"
         case city = "school.city"
@@ -33,7 +34,7 @@ struct School: Codable, Identifiable {
 }
 // these values are used in CollegeResultsView in order to pull the correct API
 
-
+//works with the urlQueryItem
 struct SchoolInfo: Codable {
     let city: String
     let state: String
