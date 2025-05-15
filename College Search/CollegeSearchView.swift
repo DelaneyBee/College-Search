@@ -64,7 +64,7 @@ struct CollegeSearchView: View {
                 .pickerStyle(MenuPickerStyle())
                 .padding(.horizontal)
                 NavigationLink(destination: CollegeResultsView(
-                    zip: zipCode,
+                    zip: zipCodeTextField,
                     distance: selectedDistance,
                     minSize: sizeOptions[selectedSizeRange]?.0 ?? 1000,
                     maxSize: sizeOptions[selectedSizeRange]?.1 ?? 5000
