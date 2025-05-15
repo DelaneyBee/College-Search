@@ -12,6 +12,7 @@ struct CollegeSearchView: View {
     @State private var zipCode = "Enter zip code"
     @State private var selectedSizeRange = "1000-5000"
     @State private var selectedDistance = "50"
+    @State private var zipCodeTextField = ""
     // Variable declaration
     
     private let sizeOptions: [String: (Int, Int)] = [
@@ -34,7 +35,9 @@ struct CollegeSearchView: View {
         NavigationView {
             //Second View from start screen
             VStack(spacing: 40) {
-                TextField("Enter ZIP Code", text: $zipCode).font(Font.custom("Times New Roman", size: 30))
+                CustomTextField (placeholder: "Enter Zip Code", variable: $zipCodeTextField)
+                    .frame(width: 30, height: 50)
+                    .font(Font.custom("Times New Roman", size: 30))
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal)
                 //Zip code text box
@@ -82,7 +85,7 @@ struct CollegeSearchView: View {
                    
             }
             .padding()
-            .navigationTitle("College Search").font(Font.custom("Times New Roman", size: 30))
+            .navigationTitle("College Search").font(Font.custom("Times New Roman", size: 30)).padding(.horizontal)
             .background(Color.pink.opacity(0.2))
            
           
@@ -91,5 +94,17 @@ struct CollegeSearchView: View {
 }
 #Preview  {
     CollegeSearchView()
+}
+struct CustomTextField: View {
+    let placeholder: String
+    let variable: Binding<String>
+    var body: some View {
+        TextField (placeholder, text: variable)
+            .textFieldStyle(.roundedBorder)
+            .multilineTextAlignment(.center)
+            .frame(width: 300, height: 50)
+            .font(.body)
+            .padding()
+    }
 }
 
