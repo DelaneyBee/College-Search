@@ -32,66 +32,63 @@ struct CollegeSearchView: View {
     //Array of options for the distance dropdown
     
     var body: some View {
-        NavigationView {
-            //Second View from start screen
-            VStack(spacing: 40) {
-                CustomTextField (placeholder: "Enter Zip Code", variable: $zipCodeTextField)
-                    .frame(width: 30, height: 50)
-                    .font(Font.custom("Times New Roman", size: 30))
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.horizontal)
-                //Zip code text box
-                Text("Select Number of Students:").font(Font.custom("Times New Roman", size: 30)).underline()
-                //Title for students size dropdownn
-                Picker("Student Size Range", selection: $selectedSizeRange) {
-                    //Dropdown menu
-                    ForEach(sizeOptions.keys.sorted(), id: \.self) { key in
-                        Text(key)
-                        // Pulls options from the array
-                    }
-                }
-                //Picker for distance takes the distance selected and 
-                .pickerStyle(MenuPickerStyle())
+        //Second View from start screen
+        VStack(spacing: 40) {
+            CustomTextField (placeholder: "Enter Zip Code", variable: $zipCodeTextField)
+                .frame(width: 30, height: 50)
+                .font(Font.custom("Times New Roman", size: 30))
+                .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(.horizontal)
-                Text("Select Distance:").font(Font.custom("Times New Roman", size: 30)).underline()
-                //Title for distance dropdown
-                Picker("Distance (mi)", selection: $selectedDistance) {
-                    ForEach(distanceOptions, id: \.self) { dist in
-                        Text("\(dist) miles")
-                        //Pulls distances from array
-                    }
+            //Zip code text box
+            Text("Select Number of Students:").font(Font.custom("Times New Roman", size: 30)).underline()
+            //Title for students size dropdownn
+            Picker("Student Size Range", selection: $selectedSizeRange) {
+                //Dropdown menu
+                ForEach(sizeOptions.keys.sorted(), id: \.self) { key in
+                    Text(key)
+                    // Pulls options from the array
                 }
-                .pickerStyle(MenuPickerStyle())
-                .padding(.horizontal)
-                NavigationLink(destination: CollegeResultsView(
-                    zip: zipCodeTextField,
-                    distance: selectedDistance,
-                    minSize: sizeOptions[selectedSizeRange]?.0 ?? 1000,
-                    maxSize: sizeOptions[selectedSizeRange]?.1 ?? 5000
-                    //Uses information from the buttons and loads the correct API
-                )) {
-                    Text("Load Colleges")
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.pink)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                        .font(Font.custom("Times New Roman", size: 30))
-                    //Text and button modifiers
-                    
-                }
-                .padding(.horizontal)
-                Spacer()
-                   
             }
-            .padding()
-            .navigationTitle("College Search").font(Font.custom("Times New Roman", size: 30)).padding(.horizontal)
-            .background(Color.pink.opacity(0.2))
-           
-          
+            //Picker for distance takes the distance selected and
+            .pickerStyle(MenuPickerStyle())
+            .padding(.horizontal)
+            Text("Select Distance:").font(Font.custom("Times New Roman", size: 30)).underline()
+            //Title for distance dropdown
+            Picker("Distance (mi)", selection: $selectedDistance) {
+                ForEach(distanceOptions, id: \.self) { dist in
+                    Text("\(dist) miles")
+                    //Pulls distances from array
+                }
+            }
+            .pickerStyle(MenuPickerStyle())
+            .padding(.horizontal)
+            NavigationLink(destination: CollegeResultsView(
+                zip: zipCodeTextField,
+                distance: selectedDistance,
+                minSize: sizeOptions[selectedSizeRange]?.0 ?? 1000,
+                maxSize: sizeOptions[selectedSizeRange]?.1 ?? 5000
+                //Uses information from the buttons and loads the correct API
+            )) {
+                Text("Load Colleges")
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.pink)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                    .font(Font.custom("Times New Roman", size: 30))
+                //Text and button modifiers
+                
+            }
+            .padding(.horizontal)
+            Spacer()
+            
         }
+        .padding()
+        .navigationTitle("College Search").font(Font.custom("Times New Roman", size: 30)).padding(.horizontal)
+        .background(Color.pink.opacity(0.2))
     }
 }
+
 #Preview  {
     CollegeSearchView()
 }
