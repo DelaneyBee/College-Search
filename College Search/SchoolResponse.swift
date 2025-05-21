@@ -6,7 +6,6 @@
 //  Created by Delaney Blaszinski on 5/6/25.
 //
 
-
 struct SchoolResponse: Codable {
     let results: [School]
 }
